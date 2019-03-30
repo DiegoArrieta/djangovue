@@ -6,6 +6,14 @@
         <div class="col-md-12">
           <b-table striped hover :items="books" :fields="fields">
 
+            <template slot="action" slot-scope="data">
+              <b-button size="sm" variant="primary">
+                Editar
+              </b-button>
+              <b-button size="sm" variant="danger">
+                Eliminar
+              </b-button>
+            </template>
           </b-table>
         </div>
       </div>
@@ -20,7 +28,7 @@ export default {
         fields: [
           { key: 'title', label: 'Titulo'},
           { key: 'description', label: 'Descripcion'},
-          { key: 'action', label: 'Acción'}
+          { key: 'action', label: ''}
         ],
         books: []
       }
