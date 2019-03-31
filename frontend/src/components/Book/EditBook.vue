@@ -10,7 +10,7 @@
         <div class="card">
           <div class="card-body">
 
-            <form @onSubmit="onSubmit">
+            <form @submit="onSubmit">
               <div class="form-group row">
                 <label for="title" class="col-sm-2 col-form-label">Título</label>
                   <div class="col-sm-6">
@@ -54,6 +54,17 @@
     methods: {
       onSubmit(evt){
         evt.preventDefault()
+        const path = `http://localhost:8000/api/v1.0/books/${this.bookId}/`
+
+        axios.put(path, this.form).then((response) => {
+
+          this.form.title = response.data.title
+          this.form.description = response.data.description
+
+        })
+        .catch((error) => {
+          console.log(error)
+        })
       },
 
       getBook () {
