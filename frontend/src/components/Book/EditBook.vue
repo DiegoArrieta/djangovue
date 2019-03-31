@@ -60,6 +60,7 @@
 
           this.form.title = response.data.title
           this.form.description = response.data.description
+          alert("El Libro ha sido actualizado!")
 
         })
         .catch((error) => {
@@ -74,6 +75,7 @@
 
           this.form.title = response.data.title
           this.form.description = response.data.description
+
 
         })
         .catch((error) => {
